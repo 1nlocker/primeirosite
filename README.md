@@ -1,24 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Meu Primeiro Site
 
-## Getting Started
+Este é um projeto Next.js com Supabase para gerenciamento de dados e autenticação.
 
-First, run the development server:
+## Configuração
+
+1. Clone este repositório
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Configure as variáveis de ambiente:
+   - Crie uma conta no [Supabase](https://supabase.com/)
+   - Crie um novo projeto no Supabase
+   - Copie a URL e a chave anônima do projeto
+   - Renomeie o arquivo `.env.local.example` para `.env.local` e adicione suas credenciais:
+     ```
+     NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
+     NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anon_do_supabase
+     ```
+
+## Desenvolvimento
+
+Para iniciar o servidor de desenvolvimento:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) no seu navegador.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tecnologias utilizadas
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Supabase
 
 ## Learn More
 
