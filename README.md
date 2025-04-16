@@ -18,6 +18,21 @@ Este é um projeto Next.js com Supabase para gerenciamento de dados e autentica�
      NEXT_PUBLIC_SUPABASE_URL=sua_url_do_supabase
      NEXT_PUBLIC_SUPABASE_ANON_KEY=sua_chave_anon_do_supabase
      ```
+4. Execute os scripts SQL em `supabase/migrations` no Editor SQL do Supabase para criar as tabelas e políticas de segurança
+
+## Estrutura do Banco de Dados
+
+O projeto utiliza as seguintes tabelas:
+
+1. **Perfis** (`profiles`) - Informações dos usuários
+   - Conectado à tabela `auth.users` do Supabase
+   - Inclui dados como nome de usuário, nome completo, avatar, etc.
+
+2. **Tarefas** (`todos`) - Lista de tarefas dos usuários
+   - Cada tarefa pertence a um usuário específico
+   - Contém descrição, status de conclusão e timestamps
+
+Todas as tabelas estão protegidas com políticas de Row Level Security (RLS) para garantir que os usuários só possam acessar seus próprios dados.
 
 ## Desenvolvimento
 
@@ -29,12 +44,29 @@ npm run dev
 
 Acesse [http://localhost:3000](http://localhost:3000) no seu navegador.
 
+## Funcionalidades
+
+- **Autenticação com Magic Link**: login via email
+- **Gestão de Tarefas**: criar, ler, atualizar e excluir tarefas
+- **Atualizações em Tempo Real**: observa mudanças nas tarefas usando Realtime do Supabase
+
+## CI/CD
+
+O projeto está configurado com GitHub Actions para:
+- Verificar a compilação em cada push ou pull request
+- Executar a compilação do Next.js
+
+Para configurar o deploy automático, adicione seus segredos do Supabase como segredos do GitHub:
+- `NEXT_PUBLIC_SUPABASE_URL`
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
 ## Tecnologias utilizadas
 
 - Next.js
 - TypeScript
 - Tailwind CSS
 - Supabase
+- GitHub Actions
 
 ## Learn More
 
